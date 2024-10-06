@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        font-family: "Inter", sans-serif;
+    }
+    body {
+        background: #133313;
+    }
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        
+        padding: 35px 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .50s ease;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 28px;
+        color: #fff;
+        font-weight: 800;
+    }
+    .navlist {
+        display: flex;
+    }
+    .navlist a {
+        display: inline-block;
+        margin: 0 35px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all .50s ease;
+    }
+    .navlist a:hover {
+        text-shadow: 3px 3px 20px #066400, -2px 1px 30px #fff;
+    }
+    .nav-right {
+        display: flex;
+        align-items: center;
+    }
+    .btn-menu {
+        display: inline-block;
+        padding: 14px 35px;
+        background: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        border-radius: 10px;
+        margin-right: 12px;
+        transition: all .6s ease;
+    }
+    .btn-menu:hover {
+        background-color: #066400;
+        color: #fff;
+        box-shadow: 0 0 20px #066400;
+        transform: scale(1.1);
+    }
+    #menu-icon {
+        font-size: 30px;
+        color: #fff;
+        z-index: 1000;
+        cursor: pointer;
+        padding: 0px 0px 0px 10px !important;
+        display: none;
+    }
+    @media (max-width: 1300px) {
+        header {
+            padding: 20px 4%;
+        }
+    }
+    @media (max-width: 1050px) {
+        .logo {
+            font-size: 25px;
+        }
+        .navlist a {
+            margin: 0 25px;
+        }
+        .btn-menu {
+            padding: 11px 23px;
+        }
+    }
+    @media (max-width: 940px) {
+        #menu-icon {
+            display: block !important;
+        }
+        .navlist {
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            backdrop-filter: blur(3px);
+            display: flex;
+            flex-direction: column;
+            padding-top: 180px;
+            align-items: center;
+            transition: all .7s ease;
+        }
+        .navlist a {
+            display: block;
+            padding: 0px;
+            margin: 0px 0px 50px 0px;
+            font-size: 1.7rem;
+        }
+        .navlist.open {
+            right: 0;
+        }
+    }
+</style>
+<body>
+    <header>
+        <a href="" class="logo"><p>DevAbd.</p></a>
+        <ul class="navlist">
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="" class="btn-menu">Price</a>
+            <div class="fa-solid fa-bars" id="menu-icon"></div>
+        </div>
+    </header>
+    <script type="text/javascript">
+        let menu = document.querySelector('#menu-icon');
+        let navlist = document.querySelector('.navlist');
+
+        menu.onclick = () => {
+            menu.classList.toggle('fa-xmark');
+            navlist.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
